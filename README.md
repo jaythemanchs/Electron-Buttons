@@ -6,7 +6,7 @@ Electron-Buttons is a lightweight Electron Node Module which allows the creation
 - Initialize the class
 - Create a button
 - Customize its parameters
-- ✨Magic ✨
+- ✨ Magic ✨
 
 ## Features
 
