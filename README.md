@@ -23,4 +23,4 @@ npm i electron-buttons
 ```
 
 ## License
-[See LICENSE](https://github.com/jaythemanchs/Electron-Buttons/blob/faa4435ca3d799f5bf4dc85d0f20aaa81fcbbb13/LICENSE)
+[See LICENSE](./LICENSE)
