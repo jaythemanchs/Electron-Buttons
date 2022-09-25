@@ -1,5 +1,5 @@
 let buttonCount = 0
-import { BrowserWindow } from "electron";
+let buttons = []
 
 class TitleBarButton {
     constructor(browserWindow, options) {
@@ -17,7 +17,7 @@ class TitleBarButton {
     }
     id = 0
     static getPropertiesOfWindow = () => {
-        
+
     }
     static pixelsConsumed = (browserWindow) => {
         return {
