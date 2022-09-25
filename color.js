@@ -75,12 +75,18 @@ function setColor(hex) {
     document.getElementById('topLeft').style.backgroundColor = contrastColor(hex, false)
 }
 
-function randHex() {
+function randHex(onlyGrey) {
     var hex = Math.floor(Math.random() * 16777215).toString(16)
-    hex = "#" + ("000000" + hex).slice(-6)
+    if (onlyGrey != true) {
+        hex = "#" + ("000000" + hex).slice(-6)
+    } else {
+        hex = '#' + hex.slice(0, 2) + hex.slice(0, 2) + hex.slice(0, 2)
+    }
     return hex
 }
 
 function visualizeColor(color) {
     console.log('%c   ', 'color: black; background-color: ' + color)
 }
+
+console.log(randHex(true))
