@@ -54,7 +54,7 @@ function HSLToHex(h, s, l) {
 
 function contrastColor(hex, up) {
     let HSL = hexToHSL(hex)
-    if (HSL.h == 0 && HSL.s == 0) {
+    if (HSL.h != 0 && HSL.s != 0) {
         if (HSL.l <= 50) {
             if (HSL.s >= 20) HSL.s = HSL.s - 20
             if (HSL.h >= 2) HSL.h = HSL.h - 2
@@ -79,4 +79,8 @@ function randHex() {
     var hex = Math.floor(Math.random() * 16777215).toString(16)
     hex = "#" + ("000000" + hex).slice(-6)
     return hex
+}
+
+function visualizeColor(color) {
+    console.log('%c   ', 'color: black; background-color: ' + color)
 }
