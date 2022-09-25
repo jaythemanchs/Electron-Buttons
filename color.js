@@ -51,3 +51,32 @@ function HSLToHex(h, s, l) {
     };
     return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+function contrastColor(hex, up) {
+    let HSL = hexToHSL(hex)
+    if (HSL.h == 0 && HSL.s == 0) {
+        if (HSL.l <= 50) {
+            if (HSL.s >= 20) HSL.s = HSL.s - 20
+            if (HSL.h >= 2) HSL.h = HSL.h - 2
+        } else {
+            if (HSL.s <= 80) HSL.s = HSL.s + 20
+            if (HSL.h <= 358) HSL.h = HSL.h + 2
+        }
+    }
+    HSL.l = up ? HSL.l + 10.196078431372555 : HSL.l - 10.196078431372555
+    let newHSL = HSLToHex(HSL.h, HSL.s, HSL.l)
+    return newHSL
+}
+
+function setColor(hex) {
+    electronAPI.setTitle({
+        color: hex
+    })
+    document.getElementById('topLeft').style.backgroundColor = contrastColor(hex, false)
+}
+
+function randHex() {
+    var hex = Math.floor(Math.random() * 16777215).toString(16)
+    hex = "#" + ("000000" + hex).slice(-6)
+    return hex
+}
