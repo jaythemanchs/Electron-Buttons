@@ -16,6 +16,9 @@ class TitleBarButton {
         }
     }
     id = 0
+    static getPropertiesOfWindow = () => {
+        
+    }
     static pixelsConsumed = (browserWindow) => {
         return {
             width: (buttonCount * 46),
