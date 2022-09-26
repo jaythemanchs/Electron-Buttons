@@ -73,7 +73,7 @@ function randHex(onlyGrey) {
 function getColorsFromColor(color) {
     if (/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color) != null) {
         return {
-            hexOnNormal: color,
+            hexOnNormal: String(color),
             hexOnHover: contrastColor(color)[0],
             hexOnClick: contrastColor(color)[1]
         }
