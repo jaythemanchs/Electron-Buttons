@@ -8,7 +8,11 @@ Electron-Buttons is a lightweight Electron Node Module which allows the creation
 
 - Require the module
 ```javascript
+// main.js
 const { TitleBarButton } = require('electron-buttons')
+
+// preload.js
+const { initializePreload } = require('electron-buttons')
 ```
 - Create a button
 ```javascript
