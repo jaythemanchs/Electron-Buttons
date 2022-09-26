@@ -6,9 +6,28 @@ Made with ❤️ by [JayTheManCHS](https://github.com/jaythemanchs)
 ## Introduction
 Electron-Buttons is a lightweight Electron Node Module which allows the creation of custom WindowsTitlebarOverlay Buttons inside of your app.
 
-- Initialize the class
+- Require the module
+```javascript
+const { TitleBarButton } = require('electron-buttons')
+```
 - Create a button
-- Customize its parameters
+```javascript
+const myTitleBarButton = new TitleBarButton(browserWindow, {
+    id: 'l',
+    height: 40,
+    icon: path.join(__dirname, 'accountIcon.png'),
+    color: '#ffffff',
+    tryToAnalyse: true,
+    buttonID: 'accountButton',
+})
+```
+- Style to your needs
+```javascript
+myTitleBarButton.insertCSS('img', `
+    border-radius: 15px;
+    border: 1px solid #eee;
+`)
+```
 
 ## Features
 
