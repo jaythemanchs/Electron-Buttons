@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Lets you add custom WindowsTitleBarOverlay buttons to your app",
   "main": "index.js",
+  "types": "types.d.ts",
   "scripts": {
-    "test": ""
+    "test": "cd C:\\Users\\jacob\\Documents\\Electron\\titleBar && npm test"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/jaythemanchs/custom-windows-buttons/issues"
   },
-  "homepage": "https://github.com/jaythemanchs/custom-windows-buttons#readme"
+  "homepage": "https://github.com/jaythemanchs/custom-windows-buttons#readme",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
 }

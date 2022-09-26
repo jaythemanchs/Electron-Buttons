@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
 import { BrowserWindow, NativeImage } from 'electron'
 
-class TitleBarButton extends EventEmitter {
+export class TitleBarButton extends EventEmitter {
     constructor(browserWindow: BrowserWindow, options: TitleBarButtonOptions) {
         super()
     }
@@ -14,8 +14,8 @@ class TitleBarButton extends EventEmitter {
     private readonly hasBeenCreated: boolean
     attachedTo: BrowserWindow
     icon: NativeImage
-    insertCSS = (buttonOrImg: 'button' | 'image'): void => {}
-    static pixelsConsumed = (browserWindow: BrowserWindow): { width: number, height: number } => {}
+    insertCSS: (buttonOrImg: 'button' | 'image') => void
+    static pixelsConsumed: (browserWindow: BrowserWindow) => { width: number, height: number }
 }
 
 const templateOptionsRequired = ['id', 'height', 'icon', 'color']
@@ -31,5 +31,3 @@ type TitleBarButtonOptions = {
     id: string
     tryToAnalyse?: boolean
 }
-
-module.exports = { TitleBarButton }

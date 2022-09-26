@@ -7,7 +7,7 @@ const templateOptionsOptional = ['tryToAnalyse', 'colorOnHover', 'colorOnClick',
 
 class TitleBarButton extends EventEmitter {
     constructor(browserWindow, options) {
-        super ()
+        super()
         if (browserWindow != null && browserWindow != undefined) {
             if (browserWindow['webContents'] != undefined) {
                 if (typeof options == 'object' && options != null) {
@@ -60,7 +60,7 @@ class TitleBarButton extends EventEmitter {
         if (this.hasBeenCreated) {
             this.attachedTo.webContents.insertCSS()
         } else {
-            
+
         }
     }
     static pixelsConsumed = (browserWindow) => {
@@ -71,5 +71,4 @@ class TitleBarButton extends EventEmitter {
     }
 }
 
-console.log(TitleBarButton)
-console.log(new TitleBarButton({webContents: 0}, {id: 'l', height: 40, icon: '', color: '#ffffff', tryToAnalyse: true, buttonID: 'accountButton'}))
+module.exports = { TitleBarButton }
