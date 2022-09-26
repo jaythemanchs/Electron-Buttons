@@ -18,9 +18,6 @@ export class TitleBarButton extends EventEmitter {
     static pixelsConsumed: (browserWindow: BrowserWindow) => { width: number, height: number }
 }
 
-const templateOptionsRequired = ['id', 'height', 'icon', 'color']
-const templateOptionsOptional = ['tryToAnalyse', 'colorOnHover', 'colorOnClick', 'buttonID']
-
 type TitleBarButtonOptions = {
     buttonID?: string
     color: string
