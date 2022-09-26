@@ -1,6 +1,3 @@
-import { EventEmitter } from 'node:events';
-import { BrowserWindow, NativeImage } from 'electron'
-
 export class TitleBarButton extends EventEmitter {
     constructor(browserWindow: BrowserWindow, options: TitleBarButtonOptions) {
         super()
@@ -11,10 +8,13 @@ export class TitleBarButton extends EventEmitter {
     color: string
     colorOnHover: string
     colorOnClick: string
-    private readonly hasBeenCreated: boolean
     attachedTo: BrowserWindow
-    icon: NativeImage
-    insertCSS: (buttonOrImg: 'button' | 'image') => void
+    icon: NativeImage | string
+    private _icon: NativeImage | string;
+    private _readableIcon: string;
+    private readonly internalPort: string
+    insertCSS: (buttonOrImage: 'button' | 'image') => Promise<string>
+    removeCSS: (key: string) => Promise<void>
     static pixelsConsumed: (browserWindow: BrowserWindow) => { width: number, height: number }
 }
 

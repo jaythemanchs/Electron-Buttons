@@ -1,5 +1,7 @@
 const color = require('./color')
 const { EventEmitter } = require('node:events');
+const crypto = require('node:crypto')
+const { ipcMain, nativeImage } = require('electron')
 let buttonCount = 0
 let buttons = []
 const templateOptionsRequired = ['id', 'height', 'icon', 'color']
@@ -14,8 +16,11 @@ class TitleBarButton extends EventEmitter {
                     if (templateOptionsRequired.every((option) => Object.keys(options).indexOf(option) > -1)) {
                         this.id = options.id
                         this.height = options.height
-                        this.icon = options.icon
+                        this._icon = options.icon
                         this.attachedTo = browserWindow
+                        this.internalPort = crypto.randomUUID()
+                        this._readableIcon = typeof this.icon == 'string' ? nativeImage.createFromPath(this.icon).toDataURL() : this.icon.toDataURL() 
+                        if (buttons.filter(button => button.id == options.id).length > 0) throw new Error('Buttons cannot share same ID!')
                         if (/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(options.color) != null) {
                             this.color = options.color
                         } else {
@@ -33,7 +38,9 @@ class TitleBarButton extends EventEmitter {
                             }
                         }
                         if (typeof options.buttonID == 'string') this.buttonID = options.buttonID; else this.buttonID = options.id
+                        if (buttons.filter(button => button.buttonID == this.buttonID).length > 0) throw new Error('Buttons cannot share same buttonID!')
                         buttons.push(this)
+                        buttonCount++
                     } else {
                         throw new Error('Invalid Options object!')
                     }
@@ -55,17 +62,42 @@ class TitleBarButton extends EventEmitter {
     colorOnClick = ''
     hasBeenCreated = false
     attachedTo = null
-    icon = null
-    insertCSS = (buttonOrImg) => {
-        if (this.hasBeenCreated) {
-            this.attachedTo.webContents.insertCSS()
-        } else {
-
-        }
+    _icon = null
+    _readableIcon = ''
+    internalPort = ''
+    get icon() {
+        return this._icon;
+    }
+    set icon(value) {
+        if (typeof value == 'string') this._readableIcon = nativeImage.createFromPath(value).toDataURL(); else this._readableIcon = value.toDataURL()
+        this._icon = value;
+    }
+    insertCSS = (buttonOrImage, CSS) => {
+        return new Promise((resolve, reject) => {
+            this.attachedTo.webContents.insertCSS(`
+                ${buttonOrImage == 'btn' ? this.buttonID : this.buttonID + '>img'} {
+                    ${CSS}
+                }
+            `).then(key => {
+                resolve(key)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    }
+    removeCSS = (key) => {
+        return new Promise((resolve, reject) => {
+            this.attachedTo.webContents.removeInsertedCSS(key).then(() => {
+                resolve()
+            })
+                .catch(err => {
+                    reject(err)
+                })
+        })
     }
     static pixelsConsumed = (browserWindow) => {
         return {
-            width: (buttonCount * 46),
+            width: (buttonCount * 46) + 138,
             height: Number(buttons.filter((button) => button.attachedTo == browserWindow)[0].height)
         }
     }
