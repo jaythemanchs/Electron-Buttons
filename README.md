@@ -9,20 +9,22 @@ Electron-Buttons is a lightweight Electron Node Module which allows the creation
 - Require the module
 ```javascript
 // main.js
-const { TitleBarButton } = require('electron-buttons')
-
+const { TitleBarButton } = require('electron-buttons/main')
+```
+- (Optional): The renderer class works the same as the main class
+```javascript
 // preload.js
-const { initializePreload } = require('electron-buttons')
+const { TitleBarButton, currentWindow } = require('electron-buttons/renderer')
 ```
 - Create a button
 ```javascript
-const myTitleBarButton = new TitleBarButton(browserWindow, {
-    id: 'l',
+const myTitleBarButton = new TitleBarButton(currentWindow(), {
+    id: 'settingsButton',
     height: 40,
     icon: path.join(__dirname, 'accountIcon.png'),
     color: '#ffffff',
     tryToAnalyse: true,
-    buttonID: 'accountButton',
+    buttonID: 'settingsButton'
 })
 ```
 - Style to your needs
