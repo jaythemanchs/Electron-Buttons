@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "types": "src/types.d.ts",
   "scripts": {
-    "test": "cd C:\\Users\\jacob\\Documents\\Electron\\titleBar && npm test"
+    "test": "cd ./demo && npm test"
   },
   "repository": {
     "type": "git",

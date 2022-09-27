@@ -1,6 +1,6 @@
 const { BrowserWindow, app, Menu, ipcMain } = require('electron')
 const path = require('path')
-const { main } = require('../../../Desktop/Personal Node Modules/custom-windows-buttons')
+const { TitleBarButton } = require('../').main
 
 app.on('ready', () => {
     createWindow()
