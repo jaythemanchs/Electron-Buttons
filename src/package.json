@@ -22,5 +22,8 @@
   "homepage": "https://github.com/jaythemanchs/custom-windows-buttons#readme",
   "devDependencies": {
     "typescript": "^4.8.3"
+  },
+  "peerDependencies": {
+    "electron": "^17.0.0"
   }
 }

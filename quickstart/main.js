@@ -36,6 +36,8 @@ function createWindow() {
     titleBarButton.on('click', (event) => {
         console.log(event)
     })
+
+    titleBarButton
     
     window.on('ready-to-show', () => {
         window.show()

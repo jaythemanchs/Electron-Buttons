@@ -19,6 +19,6 @@
     "electron": "^21.0.0"
   },
   "dependencies": {
-    "electron-buttons": "file:.."
+    "electron-buttons": "^1.0.1"
   }
 }

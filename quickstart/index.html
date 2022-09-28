@@ -41,6 +41,7 @@
         #left>#bottomLeft {
             height: calc(100% - 41px);
             width: 100%;
+            display: flex;
             background:
                 linear-gradient(to top left,
                     rgba(0, 0, 0, 0) 0%,
@@ -55,6 +56,33 @@
                     rgba(0, 0, 0, 0) calc(50% + 0.8px),
                     rgba(0, 0, 0, 0) 100%);
         }
+        #left>#bottomLeft>#log {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            padding: 10px;
+            overflow: auto;
+        }
+        #left>#bottomLeft>#log::-webkit-scrollbar {
+            width: 10px;
+            background-color: white;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        #left>#bottomLeft>#log::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 15px;
+        }
+
+        #left>#bottomLeft>#log>p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -63,7 +91,13 @@
         <div id="topLeft">
             <p>Example Application</p>
         </div>
-        <div id="bottomLeft"></div>
+        <div id="bottomLeft">
+            <div id="log">
+                <p>
+                    Start Log
+                </p>
+            </div>
+        </div>
     </div>
     <script src="./renderer.js"></script>
 </body>
