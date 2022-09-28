@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+        }
+
+        #left {
+            width: -webkit-fill-available;
+        }
+
+        #left>#topLeft {
+            background-color: white;
+            -webkit-user-drag: none;
+            app-region: drag;
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #left>#topLeft>p {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 10px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #left>#bottomLeft {
+            height: calc(100% - 41px);
+            width: 100%;
+            background:
+                linear-gradient(to top left,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+                    rgba(0, 0, 0, 1) 50%,
+                    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+                    rgba(0, 0, 0, 0) 100%),
+                linear-gradient(to top right,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+                    rgba(0, 0, 0, 1) 50%,
+                    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+                    rgba(0, 0, 0, 0) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left">
+        <div id="topLeft">
+            <p>Example Application</p>
+        </div>
+        <div id="bottomLeft"></div>
+    </div>
+    <script src="./renderer.js"></script>
+</body>
