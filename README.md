@@ -17,7 +17,7 @@ $ npm install electron-buttons@latest
 ```javascript
 // main.js
 const { app, BrowserWindow } = require('electron')
-const { TitleBarButton } = require('electron-buttons/main')
+const { TitleBarButton } = require('electron-buttons').Main
 
 // Wait until the app is ready
 app.on('ready', () => {
