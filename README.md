@@ -6,48 +6,77 @@ Made with ❤️ by [JayTheManCHS](https://github.com/jaythemanchs)
 ## Introduction
 Electron-Buttons is a lightweight Electron Node Module which allows the creation of custom WindowsTitlebarOverlay Buttons inside of your app.
 
-- Require the module
+
+## Quickstart
+1. Install `electron-buttons`
+```sh
+$ npm install electron-buttons@latest
+```
+
+2. Require `electron-buttons` in the **Main** process
 ```javascript
 // main.js
+const { app, BrowserWindow } = require('electron')
 const { TitleBarButton } = require('electron-buttons/main')
-```
-- (Optional): The renderer class works the same as the main class
-```javascript
-// preload.js
-const { TitleBarButton, currentWindow } = require('electron-buttons/renderer')
-```
-- Create a button
-```javascript
-const myTitleBarButton = new TitleBarButton(currentWindow(), {
-    id: 'settingsButton',
-    height: 40,
-    icon: path.join(__dirname, 'accountIcon.png'),
-    color: '#ffffff',
-    tryToAnalyse: true,
-    buttonID: 'settingsButton'
+
+// Wait until the app is ready
+app.on('ready', () => {
+    // Create a window
+    const window = new BrowserWindow({
+        width: 600,
+        height: 500,
+        frame: false,
+        show: false,
+        titleBarOverlay: {
+            height: 40,
+            color: '#ffffff',
+            symbolColor: 'black'
+        },
+        titleBarStyle: 'hidden'
+    })
+    
+    // Load a file or URL into the window
+    window.loadFile('path-to-your-html-file-here')
+    
+    // Create a new TitleBarButton
+    const button = new TitleBarButton(window, {
+            id: 'button1',
+            height: 40,
+            icon: 'path-to-you-icon-here,
+            color: '#aaaaaa',
+            tryToAnalyse: true,
+            buttonID: 'titleBarButton1'
+        })
 })
 ```
-- Style to your needs
+
+## Installation
+Follow the steps below to start using `electron-buttons`
+
+1. Install Node.js from https://nodejs.org/en/download/
+
+2. Install the `electron-buttons` dependency using `npm`
+```sh
+$ npm install electron-buttons@latest
+```
+3. Require `electron-buttons` in the **Main** or **Preload** process, or otherwise in a process which has access to both `Node` and `Electron` APIs
 ```javascript
-myTitleBarButton.insertCSS('img', `
-    border-radius: 15px;
-    border: 1px solid #eee;
-`)
+const { TitleBarButton } = require('electron-buttons').Main
+// Or depending on the process
+const { TitleBarButton } = require('electron-buttons').Renderer
 ```
 
-## Features
+## API
+Currently work in progress.
 
+## Contributing Guidelines
+Currently, contributions are not currently accepted until after the full release. If you have any suggestions, please create an issue with the `enhancement` label.
+
+## License
+All code is licensed under the [MIT](./LICENSE) License.
+
+
+## Features
 - Fully seamless creation of native-feeling titlebar buttons
 - Easy Customization due to a direct interface of the DOM Element
 - Event Listeners can be added easily
-
-## Installation
-
-The preferred method of installation is via [`npm`](https://docs.npmjs.com/).
-
-```sh
-npm i electron-buttons
-```
-
-## License
-[See LICENSE](./LICENSE)
