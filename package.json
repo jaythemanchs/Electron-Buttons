@@ -1,9 +1,9 @@
 {
   "name": "electron-buttons",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "Lets you add custom WindowsTitleBarOverlay buttons to your app",
-  "main": "./src/index.js",
-  "types": "./src/types.d.ts",
+  "main": "src/index.js",
+  "types": "src/types.d.ts",
   "scripts": {
     "test": "cd ./demo && npm test"
   },
@@ -24,6 +24,6 @@
     "typescript": "^4.8.3"
   },
   "peerDependencies": {
-    "electron": "^17.0.0"
+    "electron": "^21.0.0"
   }
 }

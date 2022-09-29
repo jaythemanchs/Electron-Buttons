@@ -56,8 +56,10 @@
                     rgba(0, 0, 0, 0) calc(50% + 0.8px),
                     rgba(0, 0, 0, 0) 100%);
         }
+
         #left>#bottomLeft>#log {
             display: flex;
+            flex-direction: column-reverse;
             width: 80%;
             height: 80%;
             margin: auto;
@@ -67,6 +69,7 @@
             padding: 10px;
             overflow: auto;
         }
+
         #left>#bottomLeft>#log::-webkit-scrollbar {
             width: 10px;
             background-color: white;
@@ -83,13 +86,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
         }
+
+        #left>#bottomLeft>#log>p>p {
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <div id="left">
         <div id="topLeft">
-            <p>Example Application</p>
+            <p>Event Listeners</p>
         </div>
         <div id="bottomLeft">
             <div id="log">

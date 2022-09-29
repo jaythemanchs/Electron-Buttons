@@ -2,7 +2,7 @@
   "name": "electron-buttons-quick-start",
   "version": "1.0.0",
   "description": "A demo of the electron-buttons module",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "npx electron ."
   },
@@ -19,6 +19,6 @@
     "electron": "^21.0.0"
   },
   "dependencies": {
-    "electron-buttons": "^1.0.1"
+    "electron-buttons": "^1.0.5"
   }
 }
