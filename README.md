@@ -49,6 +49,7 @@ app.on('ready', () => {
         })
 })
 ```
+A clonable quick-start can be found at [electron-buttons-quick-start](https://github.com/jaythemanchs/electron-buttons-quick-start).
 
 ## Installation
 Follow the steps below to start using `electron-buttons`
