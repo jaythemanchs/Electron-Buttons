@@ -8,12 +8,12 @@ Electron-Buttons is a lightweight Electron Node Module which allows the creation
 
 
 ## Quickstart
-1. Install `electron-buttons`
+1. Install `electron-buttons`.
 ```sh
 $ npm install electron-buttons@latest
 ```
 
-2. Require `electron-buttons` in the **Main** process
+2. Require `electron-buttons` in the **Main** process.
 ```javascript
 // main.js
 const { app, BrowserWindow } = require('electron')
@@ -52,15 +52,15 @@ app.on('ready', () => {
 A clonable quick-start can be found at [electron-buttons-quick-start](https://github.com/jaythemanchs/electron-buttons-quick-start).
 
 ## Installation
-Follow the steps below to start using `electron-buttons`
+Follow the steps below to start using `electron-buttons`.
 
 1. Install Node.js from https://nodejs.org/en/download/
 
-2. Install the `electron-buttons` dependency using `npm`
+2. Install the `electron-buttons` dependency using `npm`.
 ```sh
 $ npm install electron-buttons@latest
 ```
-3. Require `electron-buttons` in the **Main** or **Preload** process, or otherwise in a process which has access to both `Node` and `Electron` APIs
+3. Require `electron-buttons` in the **Main** or **Preload** process, or otherwise in a process which has access to both `Node` and `Electron` APIs.
 ```javascript
 const { TitleBarButton } = require('electron-buttons').Main
 // Or depending on the process
@@ -70,14 +70,13 @@ const { TitleBarButton } = require('electron-buttons').Renderer
 ## API
 Currently work in progress.
 
+## Features
+- Fully seamless creation of native-feeling titlebar buttons
+- Easy Customization due to a direct interface of the DOM Element
+- Event Listeners can be added easily
+
 ## Contributing Guidelines
 Currently, contributions are not currently accepted until after the full release. If you have any suggestions, please create an issue with the `enhancement` label.
 
 ## License
 All code is licensed under the [MIT](./LICENSE) License.
-
-
-## Features
-- Fully seamless creation of native-feeling titlebar buttons
-- Easy Customization due to a direct interface of the DOM Element
-- Event Listeners can be added easily
