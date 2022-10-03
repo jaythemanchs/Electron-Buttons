@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
     console.log('')
-    console.log('Electron-Buttons Color Helper v' + require('../package.json').version + ' - A wizard to get the colorOnHover and colorOnClick values for TitleBarButton\'s.')
+    console.log('Electron-Buttons Color Helper v' + require('../package.json').version + ' - A wizard to get the colorOnHover and colorOnClick values for TitleBarButtons.')
     console.log('')
     console.log('Usage:')
     console.log('colorhelper')
