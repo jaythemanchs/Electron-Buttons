@@ -10,7 +10,7 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
     console.log('Options:')
     console.log('[--color=\'<color\'>] [--symbol-color=\'<symbol-color>\']')
     console.log('')
-    console.log('Go to \'https://github.com/jaythemanchs/Electron-Buttons/colorHelper\' for more info.')
+    console.log('Go to \'https://github.com/jaythemanchs/Electron-Buttons/tree/main/colorHelper\' for more info.')
     console.log('')
 } else {
     const { spawn } = require('child_process')
