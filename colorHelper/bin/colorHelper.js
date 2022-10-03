@@ -18,7 +18,7 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
     const fileId = require('crypto').randomUUID()
     const { writeFile, unlink, existsSync, readFileSync } = require('fs')
     const path = require('path')
-    const filePath = path.join(process.cwd(), fileId + '.txt')
+    const filePath = path.join(__dirname, fileId + '.txt')
     let loader = loaderStart('Waiting for electron to start...')
     let windowLoader = 0
     let color = ''
@@ -84,10 +84,12 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
         })
     }
 
-    const child = spawn('npx', ['electron', 'bin/electronHelper.js', `--fileId=${fileId}`], {
-        cwd: process.cwd(),
-        shell: true
+    const child = spawn('npx', ['electron', 'electronHelper.js', `--fileId=${fileId}`], {
+        shell: true,
+        cwd: __dirname
     })
+
+    console.log(['electron', 'electronHelper.js', `--fileId=${fileId}`].join(' '))
 
     child.on('error', (err) => {
         console.log(err)
@@ -105,7 +107,7 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
                 loaderStop(loader)
                 console.log('Electron started...')
                 const ipcLoader = loaderStart('Waiting for IPC to start...')
-                writeFile(`${fileId}.txt`, '', {
+                writeFile(filePath, '', {
                     encoding: 'utf8'
                 }, (err) => {
                     if (err) { console.error(err); process.exit() }
@@ -125,7 +127,8 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
                             })
                         })
                     } else {
-                        writeFile(filePath, readFileSync(filePath, { encoding: 'utf8' }).replace(/[^\x20-\x7E]+/g, '') + '\n' + JSON.stringify({ hex: hex, symbolHex: symbolHex }), () => {
+                        writeFile(filePath, readFileSync(filePath, { encoding: 'utf8' }).replace(/[^\x20-\x7E]+/g, '') + '\n' + JSON.stringify({ hex: hex, symbolHex: symbolHex }), (err) => {
+                            if (err) { console.error(err); process.exit() }
                             windowLoader = loaderStart('Waiting for window to load...')
                         })
                     }
@@ -183,10 +186,10 @@ if (process.argv.slice(2).findIndex((arg) => arg == '--help') >= 0) {
             unlink(filePath, (err) => {
                 if (err) { console.error(err); process.exit() }
                 loaderStop(rmLoader)
-                process.kill(process.pid)
+                //process.kill(process.pid)
             })
         } else {
-            process.kill(process.pid)
+            //process.kill(process.pid)
         }
     }
 

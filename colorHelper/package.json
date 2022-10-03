@@ -2,7 +2,7 @@
   "name": "colorhelper",
   "version": "1.0.0",
   "description": "Electron-Buttons Color Helper",
-  "main": "colorHelper.js",
+  "main": "",
   "bin": {
     "colorhelper": "bin/colorHelper.js"
   },
