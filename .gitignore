@@ -1,3 +1,4 @@
 /demo
 /quickstart/node_modules
-./.npmignore
+/.npmignore
+/node_modules

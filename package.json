@@ -4,8 +4,11 @@
   "description": "Lets you add custom WindowsTitleBarOverlay buttons to your app",
   "main": "src/index.js",
   "types": "src/types.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
-    "test": "cd ./demo && npm test"
+    "test": "cd ./demo && npm start"
   },
   "repository": {
     "type": "git",

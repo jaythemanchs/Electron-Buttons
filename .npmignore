@@ -2,3 +2,5 @@
 /demo
 /quickstart
 /.git
+/.github
+/node_modules

@@ -1,0 +1,23 @@
+{
+  "name": "colorhelper",
+  "version": "1.0.0",
+  "description": "Electron-Buttons Color Helper",
+  "main": "colorHelper.js",
+  "bin": {
+    "colorhelper": "bin/colorHelper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaythemanchs/Electron-Buttons.git"
+  },
+  "keywords": [
+    "Electron-Buttons",
+    "electron"
+  ],
+  "author": "Jacob Syser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaythemanchs/Electron-Buttons/issues"
+  },
+  "homepage": "https://github.com/jaythemanchs/Electron-Buttons#readme"
+}
